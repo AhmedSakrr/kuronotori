@@ -52,9 +52,10 @@ int injectDLL(void) {
     printf("\n%s PID selected (%d)", in, PID);
 
     hProcessDLL = OpenProcess(
-        PROCESS_ALL_ACCESS,
+        PROCESS_ALL_ACCESS, // (STANDARD_RIGHTS_REQUIRED (0x000F0000L) | SYNCHRONIZE (0x00100000L) | 0xFFFF)
         FALSE,
-        PID);
+        PID
+    );
 
     if (!hProcessDLL || hProcessDLL == NULL) {
         printf("%s could not create handle to process [%d]", er, PID);
@@ -127,22 +128,26 @@ int injectDLL(void) {
     printf("\n\n\t%s dllLocation[] ---> ['%S']\n\n", in, dllLocation);
     printf("%s allocating memory within process...\n", in);
 
-    rBufferDLL = VirtualAllocEx(hProcessDLL,
+    rBufferDLL = VirtualAllocEx(
+        hProcessDLL,
         rBufferDLL,
         sizeof(dllLocation),
-        MEM_COMMIT | MEM_RESERVE,
-        PAGE_READWRITE);
+        MEM_COMMIT | MEM_RESERVE, // 0x00001000 | 0x00002000
+        PAGE_READWRITE // 0x04
+    );
 
     printf("%s allocated space within process\n\n", ok);
     printf("\t%s VirtualAllocEx() [flProtect ---> PAGE_READWRITE (RW)]\n", in);
     printf("\t%s VirtualAllocEx() [flAllocationType ---> MEM_COMMIT | MEM_RESERVE]\n\n", in);
     printf("%s writing to process memory...\n", in);
 
-    WriteProcessMemory(hProcessDLL,
+    WriteProcessMemory(
+        hProcessDLL,
         rBufferDLL,
         (LPVOID)dllLocation,
         sizeof(dllLocation),
-        NULL);
+        NULL
+    );
 
     printf("%s wrote to process memory\n\n", ok);
     printf("\t%s getting handle on KERNEL32 [KERNEL32 -> LoadLibraryW()]\n", in);
@@ -155,15 +160,32 @@ int injectDLL(void) {
     printf("%s got address of LoadLibraryW()\n", ok);
     printf("\n\t%s LoadLibraryW() @ 0x%p\n\n", in, (void*)startRoutine);
 
+    DWORD sleepTime;
+
+    printf("\n\n%s time to sleep (in seconds)", in);
+    printf("\n%s for none/no sleep time, enter in '0' \n\n>>> ", in);
+    std::cin >> sleepTime;
+
+    sleepTime *= 1000;
+
     printf("%s creating remote thread...\n", in);
 
-    CreateRemoteThread(hProcessDLL,
+    if (sleepTime || sleepTime > 0) {
+
+        printf("\n%s sleeping for %ld seconds...", in, (sleepTime / 1000));
+        Sleep(sleepTime);
+
+    }
+
+    CreateRemoteThread(
+        hProcessDLL,
         NULL,
         0,
         startRoutine,
         rBufferDLL,
         0,
-        NULL);
+        NULL
+    );
 
     printf("%s thread created, enjoy!\n", ok);
     printf("%s closing handle to process...\n", in);

