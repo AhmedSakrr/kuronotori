@@ -158,21 +158,21 @@ int injectDLL(void) {
     printf("%s PTHREAD_START_ROUTINE done\n", ok);
     printf("%s got handle on KERNEL32 module\n", ok);
     printf("%s got address of LoadLibraryW()\n", ok);
-    printf("\n\t%s LoadLibraryW() @ 0x%p\n\n", in, (void*)startRoutine);
+    printf("\n\t%s LoadLibraryW() @ 0x%p\n", in, (void*)startRoutine);
 
     DWORD sleepTime;
 
-    printf("\n\n%s time to sleep (in seconds)", in);
+    printf("\n%s time to sleep (in seconds)", in);
     printf("\n%s for none/no sleep time, enter in '0' \n\n>>> ", in);
     std::cin >> sleepTime;
 
     sleepTime *= 1000;
 
-    printf("%s creating remote thread...\n", in);
+    printf("\n%s creating remote thread...", in);
 
     if (sleepTime || sleepTime > 0) {
 
-        printf("\n%s sleeping for %ld seconds...", in, (sleepTime / 1000));
+        printf("\n%s sleeping for %ld seconds...\n", in, (sleepTime / 1000));
         Sleep(sleepTime);
 
     }
