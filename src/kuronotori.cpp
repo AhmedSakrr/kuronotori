@@ -1,9 +1,9 @@
 #include "injectDLL.h"
 #include "injectShellcode.h"
 
-char ok[] = ("(" KGRN "+" KRST ")");
-char in[] = ("(" KYEL "*" KRST ")");
-char er[] = ("(" KRED "!" KRST ")");
+char ok[] = ("(+)");
+char in[] = ("(*)");
+char er[] = ("(!)");
 
 void bannerInfo() {
     std::cout << R"(				 
