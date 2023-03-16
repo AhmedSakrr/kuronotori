@@ -16,8 +16,8 @@ void bannerInfo() {
         |--/-"---"---|
 )" << "\n";
 
-    printf(KGRN "\tkuro no tori v1.0.1 (injector) \n" KRST);
-    printf(KYEL "\tauthor: crow // @cr-0w [github]\n\n" KRST);
+    printf("\tkuro no tori v1.0.1 (injector) \n");
+    printf("\tauthor: crow // @cr-0w [github]\n\n");
 
 }
 
