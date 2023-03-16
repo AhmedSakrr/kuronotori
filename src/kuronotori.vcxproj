@@ -142,7 +142,7 @@
     <ResourceCompile Include="kuronotori.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Downloads\kuronotori.ico" />
+    <Image Include="blackbird.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
