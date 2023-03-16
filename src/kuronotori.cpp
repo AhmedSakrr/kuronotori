@@ -16,7 +16,7 @@ void bannerInfo() {
         |--/-"---"---|
 )" << "\n";
 
-    printf("\tkuro no tori v1.0.1 (injector) \n");
+    printf("\tkuro no tori v1.0.3 (injector) \n");
     printf("\tauthor: crow // @cr-0w [github]\n\n");
 
 }

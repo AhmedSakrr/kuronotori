@@ -136,6 +136,13 @@
     <ClInclude Include="glassBox.h" />
     <ClInclude Include="injectDLL.h" />
     <ClInclude Include="injectShellcode.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kuronotori.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\kuronotori.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
