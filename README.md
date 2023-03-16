@@ -49,7 +49,7 @@ Currently, the injector is capable of:
 
 ## `💽` Installation
 
-To start using the program, build the solution. Once you've done that, you can interact with the program by running the executable.
+To start using the program, open the solution (`kuronotori.sln` file), and build the solution. Once you've done that, you can interact with the program by running the executable.
 
 ```
 C:\> kuronotori.exe
