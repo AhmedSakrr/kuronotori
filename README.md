@@ -19,7 +19,7 @@
 - [🎉 **Features**](https://github.com/cr-0w/kuronotori#-Features)
 - [🔮 **For The Future**](https://github.com/cr-0w/kuronotori#-For-The-Future)
 - [💽 **Installation**](https://github.com/cr-0w/kuronotori#-Installation)
-- [🍀 **Demo**](https://github.com/cr-0w/kuronotori#-Demo)
+- [🍀 **Demos**](https://github.com/cr-0w/kuronotori#-Demos)
 
 > **Note**: *Where it stands currently, the injector is quite primitive - although I hope that changes soon.* 😊
 
