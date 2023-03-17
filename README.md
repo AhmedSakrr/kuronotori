@@ -34,6 +34,7 @@ Currently, the injector is capable of:
 - Enumerating current processes using [`WTSEnumerateProcessesEx()`](https://learn.microsoft.com/en-us/windows/win32/api/wtsapi32/nf-wtsapi32-wtsenumerateprocessesexw).
 - Allowing you to specify the PID you'd like to inject into.
 - Performing shellcode injection using the super basic/vanilla [`CreateRemoteThread()/CreateRemoteThreadEx()`](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread) method.
+- Performing DLL injection using the [`LoadLibrary()`](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya?redirectedfrom=MSDN) and [`GetModuleHandleA()`](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlea) APIs.
 - Asking you for time (in seconds) that you'd like the program to sleep for. This is currently a placeholder for some actual sleeping techniques like [DeathSleep](https://github.com/janoglezcampos/DeathSleep) until I can figure out how to implement something similar.
 
 ## `🔮` For The Future
