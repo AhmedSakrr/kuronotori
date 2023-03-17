@@ -57,13 +57,13 @@ C:\> kuronotori.exe
 
 ## `🍀` Demos 
 
-## `🍀` `Shellcode Injection`
+## `💉` `Shellcode Injection`
 
 
 https://user-images.githubusercontent.com/59679082/225786351-b7be291a-84ad-46eb-a40a-b894f4d9d946.mp4
 
 <br>
 
-## `🍀` `DLL Injection`
+## `💉` `DLL Injection`
 
 https://user-images.githubusercontent.com/59679082/225786376-a82a87cf-a825-4f30-8aac-fc9a19a85f01.mp4
