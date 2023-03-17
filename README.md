@@ -55,8 +55,13 @@ To start using the program, open the solution (`kuronotori.sln` file), and build
 C:\> kuronotori.exe
 ```
 
-## `🍀` Demo
+## `🍀` Demo: `Shellcode Injection`
 
-https://user-images.githubusercontent.com/59679082/223326316-16931b08-7116-4e7b-a8c3-af24cec4bc8b.mp4
 
-https://user-images.githubusercontent.com/59679082/223326318-014d75e5-1f44-4935-b0a1-2c45dadfd5be.mp4
+https://user-images.githubusercontent.com/59679082/225786351-b7be291a-84ad-46eb-a40a-b894f4d9d946.mp4
+
+<br>
+
+## `🍀` Demo: `DLL Injection`
+
+https://user-images.githubusercontent.com/59679082/225786376-a82a87cf-a825-4f30-8aac-fc9a19a85f01.mp4
