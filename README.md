@@ -12,7 +12,7 @@
 
 </div>
 
-`Kuro No Tori` is a simple injector made in C++. I've been attempting to learn [low-level](https://github.com/cr-0w/low-level) (C, C++, Win32 API, ...) stuff pertaining to [malware-development](https://github.com/cr-0w/MALDEV) and this project, although a combination of everything I've learned so far, seemed like it deserved its own repository - where I could continously develop this as I learn more and more.
+`Kuro No Tori` is a simple injector made in C/C++. I've been attempting to learn [low-level](https://github.com/cr-0w/low-level) (C, C++, Win32 API, ...) stuff pertaining to [malware-development](https://github.com/cr-0w/MALDEV) and this project, although a combination of everything I've learned so far, seemed like it deserved its own repository - where I could continously develop this as I learn more and more.
 
 
 - [⚠️ **Disclaimer**](https://github.com/cr-0w/kuronotori#-Disclaimer)
